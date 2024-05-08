@@ -1,0 +1,161 @@
+.cartItem{
+    background-color: rgb(252, 249, 248);
+    padding:12px;
+    margin:33px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+    box-shadow: 1px 3px 13px 0px rgb(140, 140, 161);
+
+}
+.eachImage{
+    height: 200px;
+    width:200px;
+}
+.leftSide{
+    width:200px;
+}
+
+.rightSide{
+    width:600px;
+}
+.description{
+    color:brown;
+    font-size:14px;
+    font-weight: 600;
+}
+
+
+.title{
+    font-size: 18px;
+    color:rgb(78, 67, 54);
+}
+.category{
+    font-size: 18px;
+    color:rgb(69, 59, 45);
+}
+.price{
+    font-size: 18px;
+    color:rgb(69, 59, 45);
+}
+.date{
+    font-size: 18px;
+    color:rgb(69, 59, 45);
+}
+.sold{
+    font-size: 18px;
+    color:rgb(69, 59, 45);
+}
+
+@media (max-width:767px){
+    .cartItem{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+       
+    }
+    .leftSide{
+        width:100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .rightSide{
+        width:100%;
+    }
+}
+
+.modal {
+    font-size: 12px;
+    width:500px;
+    background-color: brown;
+    color:#cfcece;
+    border-radius: 12px;
+    font-weight: 600;
+    padding:12px;
+  }
+  .button{
+    background-color: rgb(37, 100, 27);
+    color:rgb(237, 231, 226);
+    border:0px;
+    border-radius: 4px;
+    height:33px;
+    width:120px;
+    cursor: pointer;
+    font-weight: 600;
+    
+  }
+  .actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width:100px;
+  }
+  .spanForSaveAfter{
+    background-color: darkblue;
+    color:#cfcece;
+    font-weight: 600;
+    border-radius: 2px;
+    width:300px;
+    height:100px;
+    padding-left: 12px;
+    padding-right: 12px;
+   
+  }
+  .buttonAddTaskBg{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+  .modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+  }
+  .modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }
+
+  
+  @media (max-width:767px){
+    .modal{
+        width:280px;
+    }
+    .inputs{
+        height:22px;
+    }
+  }
+
+  .inputs{
+    height: 27px;
+    width: 200px;
+    padding-left: 7px;
+    border-radius: 4px;
+    border: 0px;
+  }
