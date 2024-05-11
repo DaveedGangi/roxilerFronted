@@ -8,6 +8,7 @@ import Popup from 'reactjs-popup';
 import {v4 as uuidV4} from "uuid"
 
 import "./index.css"
+import { application, json } from "express";
 
 
 class Roxiler extends Component{
@@ -52,7 +53,7 @@ class Roxiler extends Component{
       const {title,image,description,price,category,date,sold}=this.state
       console.log("Sending Task Data")
       const newTaskAdding={
-        id:uuidV4(),
+        id:parseInt(uuidV4()),
         title:title,
         description:description,
         image:image,
@@ -65,6 +66,11 @@ class Roxiler extends Component{
       const api="https://roxilerbackend-1-vuyd.onrender.com/taskAdd"
       const option={
         method:"POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      
         body:JSON.stringify(newTaskAdding),
         
       }
