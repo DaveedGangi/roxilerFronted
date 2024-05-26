@@ -68,6 +68,9 @@ class Roxiler extends Component{
         sold:sold
       }
       console.log(newTaskAdding)
+
+
+    
       const api="https://roxilerbackend-1-vuyd.onrender.com/taskAdd"
       const option={
         method:"POST",
@@ -81,6 +84,10 @@ class Roxiler extends Component{
       }
       const response=await fetch(api,option)
       console.log(response)
+
+      if(response.ok){
+        this.fetchAllTasks()
+      }
     }
 
 
@@ -116,6 +123,10 @@ class Roxiler extends Component{
       const responseDelete=await fetch(apiDelete,optionForDelete)
 
       console.log(responseDelete)
+
+      if(responseDelete.ok){
+        this.fetchAllTasks()
+      }
 
     }
 
