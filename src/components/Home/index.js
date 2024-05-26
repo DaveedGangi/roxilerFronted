@@ -108,7 +108,7 @@ class Roxiler extends Component{
 
     deleteProduct=async(id)=>{
 
-      const apiDelete=`https://roxilerbackend-1-vuyd.onrender.com/tasks/${id}`
+      const apiDelete=`https://roxilerbackend-1-vuyd.onrender.com/taskDelete/${id}`
 
       const optionForDelete={
         method:"POST",
