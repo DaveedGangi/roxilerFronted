@@ -223,7 +223,7 @@ class Roxiler extends Component{
          
          
           
-        <button className="button" type="button" onClick={this.addDataToTheServerSide}>TASK ADD</button>
+        <button className="button" type="button" onClick={()=>{this.addDataToTheServerSide}}>TASK ADD</button>
     
         </div>
         <div className="actions">
