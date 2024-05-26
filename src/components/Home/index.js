@@ -111,13 +111,7 @@ class Roxiler extends Component{
       const apiDelete=`https://roxilerbackend-1-vuyd.onrender.com/taskDelete/${id}`
 
       const optionForDelete={
-        method:"DELETE",
-        headers:{
-          "Content-Type":"application/json",
-          Accept:"application/json"
-
-        },
-        body:JSON.stringify(id)
+        method:"DELETE"
       }
       const responseDelete=await fetch(apiDelete,optionForDelete)
 
