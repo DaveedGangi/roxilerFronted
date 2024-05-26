@@ -74,6 +74,10 @@
 }
 
 @media (max-width:767px){
+  .roxiler-head{
+    margin-right: 44px;
+    box-sizing: border-box;
+  }
   
   .eachImage{
     height: 120px;

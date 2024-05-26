@@ -161,7 +161,7 @@ class Roxiler extends Component{
               <div>
 
               <div className="nav-bar">
-                <h1>Roxiler</h1>
+                <h1 className="roxiler-head">Roxiler</h1>
 
                 <div>
                   <input  value={searchedValue} onChange={this.searchUser} type="search" placeholder="Enter the title of products"/>
