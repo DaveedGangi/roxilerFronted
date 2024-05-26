@@ -9,13 +9,16 @@ import {v4 as uuidV4} from "uuid"
 
 import "./index.css"
 
+import Pagination from "../pagination";
 
-import { application, json } from "express";
+
+
+
 
 
 class Roxiler extends Component{
 
-    state={storageOfListOfTasks:[],title:"",description:"",price:"",image:"",sold:"",date:"",category:""}
+    state={pageNumber:1,duplicateSearchedStorage:[],searchedValue:"",storageOfListOfTasks:[],title:"",description:"",price:"",image:"",sold:"",date:"",category:""}
 
     componentDidMount(){
         this.fetchAllTasks()
@@ -43,7 +46,7 @@ class Roxiler extends Component{
                 category:each.category
             }))
             
-            this.setState({storageOfListOfTasks:dataStoreTasks})
+            this.setState({duplicateSearchedStorage:dataStoreTasks.slice(0,10),storageOfListOfTasks:dataStoreTasks})
 
 
         }
@@ -103,15 +106,68 @@ class Roxiler extends Component{
       this.setState({sold:event.target.value})
     }
 
+    deleteProduct=async(id)=>{
+
+      const apiDelete=`https://roxilerbackend-1-vuyd.onrender.com/tasks/${id}`
+
+      const optionForDelete={
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          Accept:"application/json"
+
+        },
+        body:JSON.stringify(id)
+      }
+      const responseDelete=await fetch(apiDelete,optionForDelete)
+
+      console.log(responseDelete)
+
+    }
+
+    searchUser=(event)=>{
+
+      this.setState({searchedValue:event.target.value})
+    }
+
+    showSearchedData=()=>{
+
+      const{searchedValue,duplicateSearchedStorage}=this.state 
+
+      const filterData=duplicateSearchedStorage.filter((each)=>each.title.toLowerCase().includes(searchedValue.toLowerCase()))
+
+      console.log(filterData)
+      this.setState({duplicateSearchedStorage:filterData,searchedValue:""})
+
+    }
+
+    changeToNextPage=(number)=>{
+      const{storageOfListOfTasks}=this.state
+
+      this.setState({duplicateSearchedStorage:storageOfListOfTasks.slice(
+        number*10-10,number*10
+      ),pageNumber:number})
+    }
+
     render(){
 
-        const {storageOfListOfTasks,title,image,description,price,category,sold,date}=this.state
-
+        const {pageNumber,storageOfListOfTasks,searchedValue,duplicateSearchedStorage,title,image,description,price,category,sold,date}=this.state
+        
 
         return(
 
             <div>
-                <h1>Hello Roxiler</h1>
+
+              <div>
+
+              <div className="nav-bar">
+                <h1>Roxiler</h1>
+
+                <div>
+                  <input  value={searchedValue} onChange={this.searchUser} type="search" placeholder="Enter the title of products"/>
+                  <button className="search-button" onClick={this.showSearchedData} type="button">Search</button>
+                </div>
+                </div>
 
                 <div>
                  
@@ -190,9 +246,9 @@ class Roxiler extends Component{
   </Popup>
                 </div>
 
-                <div>
+                <div className="each-product">
                     {
-                        storageOfListOfTasks.map((each)=>(
+                        duplicateSearchedStorage.map((each)=>(
                             <div className="cartItem" key={each.id}>
                                 <div className="leftSide">
                                 <h1 className="title">{each.title}</h1>
@@ -205,11 +261,24 @@ class Roxiler extends Component{
                                 <h1 className="date">date of sale: {format(each.dateOfSale,"do MMMM yyyy")}</h1>
                                 <h1 className="sold">sold out or not : {each.sold===0?"sold out":"not sold out"}</h1>
                                 </div>
+
+                                <div>
+                                  <button onClick={()=>{this.deleteProduct(each.id)}} type="button">Delete</button>
+                                </div>
                             </div>
                         ))
 
                     }
                 </div>
+           
+           
+           
+           
+
+           </div>
+
+           <Pagination changeToNextPage={this.changeToNextPage} allData={storageOfListOfTasks} pageNumber={pageNumber}/>
+           
             </div>
         )
     }

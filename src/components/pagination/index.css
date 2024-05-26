@@ -1,0 +1,24 @@
+.pagination-bg{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left:22px;
+    padding-right: 22px;
+    box-sizing: border-box;
+    font-weight: 600;
+}
+.previous{
+    border: 0px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-weight:600;
+    
+}
+.next{
+    border:0px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+    
+}

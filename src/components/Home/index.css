@@ -50,7 +50,35 @@
     color:rgb(69, 59, 45);
 }
 
+.nav-bar{
+  background-color: black;
+  color:#cfcece;
+  height: 88px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 22px;
+  padding-right: 22px;
+  box-sizing: border-box;
+  margin-bottom: 18px;
+  width: 100%;
+}
+.search-button{
+  cursor: pointer;
+}
+
+
+.buttonAddTaskBg{
+  margin-right: 33px;
+}
+
 @media (max-width:767px){
+  
+  .eachImage{
+    height: 120px;
+    width: 120px;
+  }
     .cartItem{
         display:flex;
         flex-direction: column;
