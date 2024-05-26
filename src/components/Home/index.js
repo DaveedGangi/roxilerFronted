@@ -267,6 +267,8 @@ class Roxiler extends Component{
                                 <h1 className="sold">sold out or not : {each.sold===0?"sold out":"not sold out"}</h1>
                                 </div>
 
+                  
+
                                 <div>
                                   <button onClick={()=>{this.deleteProduct(each.id)}} type="button">Delete</button>
                                 </div>
