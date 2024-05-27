@@ -78,6 +78,10 @@
     margin-right: 33px;
     box-sizing: border-box;
   }
+  .title{
+    margin-right: 17px;
+    box-sizing: border-box;
+  }
   
   .eachImage{
     height: 120px;
